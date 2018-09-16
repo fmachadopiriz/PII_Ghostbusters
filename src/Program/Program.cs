@@ -1,21 +1,26 @@
-﻿using System;
+﻿//-------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//-------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Security;
 using Ghostbusters;
 
 namespace Program
 {
-    class Program
+    public class Program
     {
-        private const string fromName = "Fernando Machado"; // Reemplazar por tu nombre
+        private const string FromName = "Fernando Machado"; // Reemplazar por tu nombre
 
-        private const string receiverMailToTest = "fernando.machado@gmail.com"; // A esta dirección llegan las pruebas
+        private const string ReceiverMailToTest = "fernando.machado@gmail.com"; // A esta dirección llegan las pruebas
 
         private static List<Customer> customers = new List<Customer>();
 
         private static List<Employee> employees = new List<Employee>();
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             CreateCustomers();
             CreateEmployees();
@@ -32,14 +37,14 @@ namespace Program
 
         private static void CreateCustomers()
         {
-            customers.Add(new Customer("Maria", "González", receiverMailToTest, "Cornelio Cantera 1234"));
-            customers.Add(new Customer("Juan", "Pérez", receiverMailToTest, "Av. 8 de Octubre 2738"));
+            customers.Add(new Customer("Maria", "González", ReceiverMailToTest, "Cornelio Cantera 1234"));
+            customers.Add(new Customer("Juan", "Pérez", ReceiverMailToTest, "Av. 8 de Octubre 2738"));
         }
 
         private static void CreateEmployees()
         {
-            employees.Add(new Employee("José", "Martínez", receiverMailToTest, "12345678-9", 30));
-            employees.Add(new Employee("Andrea", "Hernández", receiverMailToTest, "9876543-2", 25));
+            employees.Add(new Employee("José", "Martínez", ReceiverMailToTest, "12345678-9", 30));
+            employees.Add(new Employee("Andrea", "Hernández", ReceiverMailToTest, "9876543-2", 25));
         }
 
         private static void SendMailToCustomers(string fromMail, MailSender mailSender)
@@ -47,10 +52,10 @@ namespace Program
             CustomerMailMessage mail;
             foreach (Customer customer in customers)
             {
-                mail = new CustomerMailMessage("Oferta imperdible", fromName, customer);
+                mail = new CustomerMailMessage("Oferta imperdible", FromName, customer);
                 mail.Body = "Visite nuestra página para ver las ofertas de la semana";
                 Console.Write($"Enviando mensaje a {customer.Name} {customer.FamilyName}... ");
-                bool sent = mailSender.EnviarMail(fromMail, fromName, mail.To.MailAddress, mail.Subject, mail.Content);
+                bool sent = mailSender.EnviarMail(fromMail, FromName, mail.To.MailAddress, mail.Subject, mail.Content);
                 Console.WriteLine(sent ? "enviado." : "no enviado.");
             }
         }
@@ -60,10 +65,10 @@ namespace Program
             CorporateMailMessage mail;
             foreach (Employee employee in employees)
             {
-                mail = new CorporateMailMessage("Feliz cumpleaños", fromName, employee);
+                mail = new CorporateMailMessage("Feliz cumpleaños", FromName, employee);
                 mail.Body = "La empresa te desea feliz cumpleaños";
                 Console.Write($"Enviando mensaje a {employee.Name} {employee.FamilyName}... ");
-                bool sent = mailSender.EnviarMail(fromMail, fromName, mail.To.MailAddress, mail.Subject, mail.Content);
+                bool sent = mailSender.EnviarMail(fromMail, FromName, mail.To.MailAddress, mail.Subject, mail.Content);
                 Console.WriteLine(sent ? "enviado." : "no enviado.");
             }
         }

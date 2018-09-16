@@ -1,20 +1,26 @@
-using System.Net.Mail;
+//----------------------------------------------------------------------------
+// <copyright file="MailSender.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//----------------------------------------------------------------------------
 using System;
+using System.Net.Mail;
 
 // La siguiente clase esta configurada para funcionar con un servidor de correo de GMail
 namespace Ghostbusters
 {
     public class MailSender
     {
-        private String usrRemitente; // generalmente el e-mail del remitente
-        private String pwdRemitente;
+        private string usrRemitente; // generalmente el e-mail del remitente
+        private string pwdRemitente;
 
-        public MailSender(String usrRemitente, String pwdRemitente)
+        public MailSender(string usrRemitente, string pwdRemitente)
         {
             this.usrRemitente = usrRemitente;
             this.pwdRemitente = pwdRemitente;
         }
-        public bool EnviarMail(String mailRemitente, String nomRemitente, String mailDestinatario, String asunto, string contenido)
+
+        public bool EnviarMail(string mailRemitente, string nomRemitente, string mailDestinatario, string asunto, string contenido)
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(mailDestinatario);
@@ -23,14 +29,17 @@ namespace Ghostbusters
             msg.SubjectEncoding = System.Text.Encoding.UTF8;
             msg.Body = contenido;
             msg.BodyEncoding = System.Text.Encoding.UTF8;
-            //Si vas a enviar un correo con contenido html entonces cambia el valor a true
+
+            // Si vas a enviar un correo con contenido html entonces cambia el valor a true
             msg.IsBodyHtml = false;
             SmtpClient client = new SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential(usrRemitente, pwdRemitente);
+            client.Credentials = new System.Net.NetworkCredential(this.usrRemitente, this.pwdRemitente);
             client.Port = 587;
-            //Este es el smtp valido para Gmail
+
+            // Este es el smtp valido para Gmail
             client.Host = "smtp.gmail.com";
-            //Esto es para que vaya a través de SSL que es obligatorio con GMail
+
+            // Esto es para que vaya a través de SSL que es obligatorio con GMail
             client.EnableSsl = true;
             try
             {

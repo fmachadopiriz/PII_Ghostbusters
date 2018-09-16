@@ -208,6 +208,9 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "StyleCop.Analyzers/1.0.2": {
+        "type": "package"
+      },
       "Library/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -684,6 +687,19 @@
         "netstandard.library.nuspec"
       ]
     },
+    "StyleCop.Analyzers/1.0.2": {
+      "sha512": "3xD87lafnVhsSEtJKk50G7FGutvaXkFz4XrrLrxnk/DhZU42dnCGWUsvKuBv4mTS0XdIgTY88tLhxW/8Vi3Pow==",
+      "type": "package",
+      "path": "stylecop.analyzers/1.0.2",
+      "files": [
+        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
+        "stylecop.analyzers.1.0.2.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "Library/1.0.0": {
       "type": "project",
       "path": "../Library/Library.csproj",
@@ -693,7 +709,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "Library >= 1.0.0",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "StyleCop.Analyzers >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -703,11 +720,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fernando\\OneDrive\\Documents\\Source\\Repos\\PII_GhostBusters\\src\\program\\Program.csproj",
+      "projectUniqueName": "C:\\Users\\Fernando\\OneDrive\\Documents\\Source\\Repos\\PII_GhostBusters\\src\\Program\\Program.csproj",
       "projectName": "Program",
-      "projectPath": "C:\\Users\\Fernando\\OneDrive\\Documents\\Source\\Repos\\PII_GhostBusters\\src\\program\\Program.csproj",
+      "projectPath": "C:\\Users\\Fernando\\OneDrive\\Documents\\Source\\Repos\\PII_GhostBusters\\src\\Program\\Program.csproj",
       "packagesPath": "C:\\Users\\Fernando\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fernando\\OneDrive\\Documents\\Source\\Repos\\PII_GhostBusters\\src\\program\\obj\\",
+      "outputPath": "C:\\Users\\Fernando\\OneDrive\\Documents\\Source\\Repos\\PII_GhostBusters\\src\\Program\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -745,6 +762,11 @@
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
+          },
+          "StyleCop.Analyzers": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.0.2, )"
           }
         },
         "imports": [

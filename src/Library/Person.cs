@@ -1,18 +1,25 @@
-﻿using System;
+﻿//-------------------------------------------------------------------------
+// <copyright file="Person.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//-------------------------------------------------------------------------
+using System;
 
 namespace Ghostbusters
 {
     public class Person
     {
-        public string Name { get; }
-        public string FamilyName { get; }
-        public string MailAddress { get; }
-
-        public Person(string name, string FamilyName, string mailAddress)
+        public Person(string name, string familyName, string mailAddress)
         {
             this.Name = name;
-            this.FamilyName = FamilyName;
+            this.FamilyName = familyName;
             this.MailAddress = mailAddress;
         }
+
+        public string Name { get; }
+
+        public string FamilyName { get; }
+
+        public string MailAddress { get; }
     }
 }

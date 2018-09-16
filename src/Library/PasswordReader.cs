@@ -1,3 +1,8 @@
+//--------------------------------------------------------------------------------
+// <copyright file="PasswordReader.cs" company="Universidad Católica del Uruguay">
+// Copyright (c) Programación II. Derechos reservados.
+// </copyright>
+//--------------------------------------------------------------------------------
 using System;
 
 namespace Ghostbusters
@@ -8,6 +13,7 @@ namespace Ghostbusters
         {
             return ReadPassword("*");
         }
+
         public static string ReadPassword(string prompt)
         {
             Console.Write(prompt);
@@ -22,7 +28,7 @@ namespace Ghostbusters
 
         public static string ReadPassword(char mask)
         {
-            string pass = "";
+            string pass = String.Empty;
             ConsoleKeyInfo key;
 
             do
@@ -39,7 +45,7 @@ namespace Ghostbusters
                 {
                     if (key.Key == ConsoleKey.Backspace && pass.Length > 0)
                     {
-                        pass = pass.Substring(0, (pass.Length - 1));
+                        pass = pass.Substring(0, pass.Length - 1);
                         Console.Write("\b \b");
                     }
                 }
